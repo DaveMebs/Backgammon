@@ -1,0 +1,19 @@
+#board {
+	border: 1px solid black;
+}
+
+#gameDiv {
+	float: left;
+}
+
+#console {
+	float: left;
+}
+
+#divBtnRoll {
+	float: left;
+}
+
+#divRollResults {
+	float: left;
+}
