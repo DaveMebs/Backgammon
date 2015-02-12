@@ -65,45 +65,57 @@ function drawPiece(x, y, color)
 	ctx.stroke();
 }
 
-function drawPieces(board)
+function drawPieces(pieces)
 {
-	for(var i = 0; i < board.length; i++)
+	for(var i = 0; i < pieces.length; i++)
 	{
-		for(var j = 0; j < board[i].length; j++)
+		for(var j = 0; j < pieces[i].length; j++)
 		{
-			if(i < 6) //bottom right quadrant
+			if(i === 0) //pieces off the board on bottom right
 			{
-				var x = xRightQuadrants+pointWidth/2+(5-i)*pointWidth;
+
+			}
+			else if(i <= 6) //bottom right quadrant
+			{
+				var x = xRightQuadrants+pointWidth/2+(6-i)*pointWidth;
 				var y = yBottomQuadrants-pieceRadius*(1+j*2);
 
-				drawPiece(x,y, board[i][j].color);
+				drawPiece(x,y, pieces[i][j].color);
 			}
 
-			else if(i < 12) //bottom left quadrant
+			else if(i <= 12) //bottom left quadrant
 			{
-				var x = xLeftQuadrants+pointWidth/2+(11-i)*pointWidth;
+				var x = xLeftQuadrants+pointWidth/2+(12-i)*pointWidth;
 				var y = yBottomQuadrants-pieceRadius*(1+j*2);
 
-				drawPiece(x,y, board[i][j].color);
+				drawPiece(x,y, pieces[i][j].color);
 			}
 
-			else if(i < 18) //top left quadrant
+			else if(i <= 18) //top left quadrant
 			{
-				var x = xLeftQuadrants+pointWidth/2+(i-12)*pointWidth;
+				var x = xLeftQuadrants+pointWidth/2+(i-13)*pointWidth;
 				var y = yTopQuadrants+pieceRadius*(1+j*2);
 				
-				drawPiece(x,y, board[i][j].color);
+				drawPiece(x,y, pieces[i][j].color);
 			}
 
-			else //top right quadrant
+			else if(i <= 24) //top right quadrant
 			{
-				var x = xRightQuadrants+pointWidth/2+(i-18)*pointWidth;
+				var x = xRightQuadrants+pointWidth/2+(i-19)*pointWidth;
 				var y = yTopQuadrants+pieceRadius*(1+j*2);
 				
-				drawPiece(x,y, board[i][j].color);
+				drawPiece(x,y, pieces[i][j].color);
 			}
+			else if (i === 25) //pieces off the board on bottom left
+			{
+
+			}
+			else
+				return -1;
 		}
 	}
+
+	return 0;
 }
 
 function drawBoard()
@@ -123,6 +135,6 @@ function drawBoard()
 		drawQuadrant(xRightQuadrants, yTopQuadrants, orientDown, "red", "black"); //top right
 		drawQuadrant(xRightQuadrants, yBottomQuadrants, orientUp, "black", "red"); //bottom right
 
-		drawPieces(this.board);
+		//drawPieces(this.board);
 	}
 }

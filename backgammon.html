@@ -4,6 +4,7 @@
 		<!--CSS-->
 		<link rel="stylesheet" type="text/css" href="backgammon.css">
 		<!--Scripts-->
+		<script src="helper.js"></script>
 		<script src="drawing.js"></script>
 		<script src="backgammon.js"></script>
 	</head>
@@ -11,8 +12,11 @@
 		<div id="content">
 			<div id="gameDiv">
 				<canvas id="board" width="1008" height="750">Your browser does not support canvas. Please upgrade to a modern browser and try again.</canvas>
-				<div id="divDice">
-					<div id="divBtnRoll">
+				<div id="divControls">
+					<div id="divNewGame">
+						<button id="btnNewGame">New Game</button>
+					</div>
+					<div id="divRoll" style="display:none;">
 						<button id="btnRoll">Roll</button>
 					</div>
 					<div id="divRollResults">
